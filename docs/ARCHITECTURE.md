@@ -166,6 +166,47 @@ O agente deverá:
 | HTTPS | Proteção da comunicação |
 | Hash SHA-256 | Verificação da integridade dos arquivos |
 
+
+### 8.1 Servidor e API
+
+O servidor central está implementado utilizando Python e FastAPI.
+
+A API é responsável por disponibilizar os documentos POPs armazenados no repositório central, permitindo que os clientes realizem o download dos documentos.
+
+Tecnologias atualmente implementadas:
+
+- Python
+- FastAPI
+- Uvicorn
+- Docker
+- Docker Compose
+
+### 8.2 Containerização
+
+A aplicação foi containerizada utilizando Docker.
+
+Arquivos responsáveis pela configuração:
+
+| Arquivo | Responsabilidade |
+|---|---|
+| `Dockerfile` | Construção da imagem da API |
+| `compose.yaml` | Gerenciamento do serviço e configurações do contêiner |
+| `.dockerignore` | Exclusão de arquivos desnecessários do contexto de construção |
+| `requirements.txt` | Dependências Python |
+
+O serviço da API é gerenciado pelo Docker Compose.
+
+Configurações atuais:
+
+- Serviço: `api`
+- Contêiner: `pop-server`
+- Porta: `8000`
+- Política de reinicialização: `unless-stopped`
+
+A API pode ser iniciada utilizando:
+
+```bash
+docker compose up -d --build
 ---
 
 ## 9. Etapas de desenvolvimento

@@ -1,7 +1,6 @@
 import os
 import tempfile
 import zipfile
-import zipfile
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException
@@ -19,7 +18,7 @@ POPS_DIR = PROJECT_ROOT / "storage" / "POPs"
 def dowload_pops():
 
     if not POPS_DIR.is_dir():
-        raise HTTPEException(
+        raise HTTPException(
             status_code=404,
             detail="Repositório de POPs não encontrado."
         )

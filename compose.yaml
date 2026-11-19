@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    container_name: pop-server
+    ports:
+
+      - "8000:8000"
+    volumes:
+
+      - ./storage/POPs:/app/storage/POPs
+    restart: unless-stopped

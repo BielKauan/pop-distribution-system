@@ -1,0 +1,14 @@
+.git
+.venv
+.venv-*
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+*.log
+logs/
+client/
+docs/
+config/
+script/
+storage/POPs/

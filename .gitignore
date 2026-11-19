@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Ambientes virtuais
+.venv*/
+venv/
+
+# Arquivos temporários
+*.zip
+*.log
+
+# Documentos POP
+storage/POPs/

@@ -294,7 +294,7 @@ O MVP será considerado funcional quando:
 - O sistema possuir logs que permitam verificar as operações.
 
 ---
-
+```
 ## 11. Fora do escopo inicial
 
 Não faz parte dos requisitos iniciais:

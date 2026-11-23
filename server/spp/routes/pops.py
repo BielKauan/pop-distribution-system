@@ -3,6 +3,7 @@ import tempfile
 import zipfile
 from pathlib import Path
 
+from server.spp.services.manifest import build_manifest
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
 from starlette.background import BackgroundTask
@@ -67,3 +68,20 @@ def dowload_pops():
         background=BackgroundTask(os.unlink, zip_path)
     )  
 
+
+@router.get("/manifest")
+def manifest_pops():
+    if not POPS_DIR.is_dir():
+        raise HTTPException(
+            status_code=404,
+            detail="Repositório de POPs não encontrado."
+        )
+
+    manifest = build_manifest(POPS_DIR)
+
+    if not manifest["files"]:
+        raise HTTPException(
+            status_code=404,
+            detail="Nenhum arquivo POP encontrado para distribuição"
+        )
+    return manifest
